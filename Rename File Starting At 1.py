@@ -1,18 +1,16 @@
 import os
 
-# Global variable for additional string in filenames
+directory = input("Enter the absolute directory path containing the files: ")
+
 additional_string = input("What would you like the files to be called?")
 
 def rename_files(directory):
-    # Get list of files in the directory
     files = os.listdir(directory)
     # Sort files alphabetically
     files.sort()
     
-    # Counter for renaming
     count = 1
     
-    # Iterate over each file
     for filename in files:
         # Get the current file's extension
         _, extension = os.path.splitext(filename)
@@ -32,11 +30,6 @@ def rename_files(directory):
         # Rename the file
         os.rename(old_path, new_path)
         
-        # Increment counter for the next file
         count += 1
 
-# Ask the user to input the directory path
-directory = input("Enter the absolute directory path containing the files: ")
-
-# Call the function to rename files in the directory
 rename_files(directory)
